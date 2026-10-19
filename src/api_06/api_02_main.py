@@ -30,7 +30,7 @@ from src.graph_05.graph_03_workflow import QueryService
 from src.utils_03.utils_02_vector_db import VectorDatabase, read_manifest
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-UI_DIRECTORY = PROJECT_ROOT / "ui"
+UI_DIRECTORY = PROJECT_ROOT / "UI"
 
 
 def create_app() -> FastAPI:

@@ -1,97 +1,82 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 630" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 720" role="img" aria-labelledby="title description">
   <title id="title">PPC-PECA Lens data flow</title>
-  <desc id="description">Offline, the two supplied PDFs are extracted, split into page-bounded chunks, embedded locally, and saved in separate Chroma collections. For each question, the browser sends one request through input checks and routing, retrieves three chunks from the selected collection, then receives a generated answer after quotation checks. Animated connectors show direction; all steps remain visible without animation.</desc>
+  <desc id="description">The left lane shows PPC and PECA PDFs becoming page chunks, local Legal-BERT vectors, and separate Chroma collections. The right lane shows one browser question passing through input checks and routing, retrieval, generation, citation checks, and a sourced response. The index supplies the retrieval step. Animated arrows show direction; the diagram is readable without motion.</desc>
   <style>
-    text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; fill: #182019; }
+    text { font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif; fill: #182019; }
     .canvas { fill: #f8f6ea; }
-    .panel { fill: #fffef8; stroke: #8e9162; stroke-width: 2; }
-    .source-panel { fill: #d9d28b; }
-    .index-panel { fill: #b2bd7e; }
-    .query-panel { fill: #fffef8; }
-    .result-panel { fill: #6a795d; }
-    .result-panel + text, .result-text { fill: #fff; }
-    .heading { font-size: 32px; font-weight: 750; letter-spacing: -1px; }
-    .lane { font-size: 17px; font-weight: 750; letter-spacing: 2px; fill: #4d6144; }
-    .step { font-size: 22px; font-weight: 730; }
-    .detail { font-size: 15px; fill: #3f493f; }
-    .step-number { font-size: 14px; font-weight: 750; fill: #4d6144; }
-    .connector { fill: none; stroke: #6a795d; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 9 8; animation: travel 1.25s linear infinite; }
-    .index-connector { stroke: #8e9162; animation-duration: 1.7s; }
-    .return-connector { stroke: #182019; }
-    .note { font-size: 15px; fill: #3f493f; }
-    @keyframes travel { to { stroke-dashoffset: -34; } }
+    .source { fill: #d9d28b; }
+    .index { fill: #b2bd7e; }
+    .query { fill: #fffef8; }
+    .answer { fill: #6a795d; }
+    .card { stroke: #8e9162; stroke-width: 2; }
+    .title { font-size: 32px; font-weight: 750; letter-spacing: -1px; }
+    .lane { font-size: 18px; font-weight: 800; letter-spacing: 1.4px; fill: #4d6144; }
+    .name { font-size: 23px; font-weight: 750; }
+    .detail { font-size: 17px; fill: #3f493f; }
+    .answer-text { fill: #fff; }
+    .foot { font-size: 16px; fill: #3f493f; }
+    .connector { fill: none; stroke: #6a795d; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 8 7; animation: travel 1s linear infinite; }
+    .index-connector { stroke: #8e9162; animation-duration: 1.6s; }
+    @keyframes travel { to { stroke-dashoffset: -30; } }
     @media (prefers-reduced-motion: reduce) { .connector { animation: none; stroke-dasharray: none; } }
   </style>
   <defs>
     <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
       <path d="M1 1 L7 4.5 L1 8" fill="none" stroke="#6a795d" stroke-width="2"/>
     </marker>
-    <marker id="return-arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
-      <path d="M1 1 L7 4.5 L1 8" fill="none" stroke="#182019" stroke-width="2"/>
-    </marker>
   </defs>
 
-  <rect class="canvas" width="1260" height="630" rx="20"/>
-  <text class="heading" x="40" y="51">From source documents to a cited response</text>
-  <text class="lane" x="40" y="96">01  PREPARE THE LOCAL SOURCES</text>
-  <text class="note" x="923" y="96">Offline ingestion command</text>
+  <rect class="canvas" width="880" height="720" rx="18"/>
+  <text class="title" x="28" y="50">Two paths. One traceable answer.</text>
+  <text class="lane" x="28" y="121">01  PREPARE PDFs OFFLINE</text>
+  <text class="lane" x="480" y="121">02  ANSWER A QUESTION</text>
 
-  <path class="connector" d="M270 183 H328" marker-end="url(#arrow)"/>
-  <path class="connector" d="M570 183 H628" marker-end="url(#arrow)"/>
-  <path class="connector" d="M870 183 H928" marker-end="url(#arrow)"/>
-  <path class="connector index-connector" d="M1080 242 V302 H755 V359" marker-end="url(#arrow)"/>
+  <path class="connector" d="M220 221 V254" marker-end="url(#arrow)"/>
+  <path class="connector" d="M220 331 V364" marker-end="url(#arrow)"/>
+  <path class="connector" d="M220 441 V474" marker-end="url(#arrow)"/>
+  <path class="connector" d="M660 221 V254" marker-end="url(#arrow)"/>
+  <path class="connector" d="M660 331 V364" marker-end="url(#arrow)"/>
+  <path class="connector" d="M660 441 V474" marker-end="url(#arrow)"/>
+  <path class="connector" d="M660 551 V584" marker-end="url(#arrow)"/>
+  <path class="connector index-connector" d="M400 513 H445 V403 H479" marker-end="url(#arrow)"/>
 
-  <rect class="panel source-panel" x="40" y="128" width="230" height="114" rx="12"/>
-  <text class="step-number" x="58" y="153">SOURCE</text>
-  <text class="step" x="58" y="185">PPC + PECA PDFs</text>
-  <text class="detail" x="58" y="211">Selected physical pages</text>
+  <rect class="card source" x="28" y="145" width="372" height="76" rx="12"/>
+  <text class="name" x="48" y="177">PPC + PECA PDFs</text>
+  <text class="detail" x="48" y="203">Selected physical pages</text>
 
-  <rect class="panel" x="340" y="128" width="230" height="114" rx="12"/>
-  <text class="step-number" x="358" y="153">EXTRACT</text>
-  <text class="step" x="358" y="185">Read and chunk</text>
-  <text class="detail" x="358" y="211">Page-bounded passages</text>
+  <rect class="card query" x="480" y="145" width="372" height="76" rx="12"/>
+  <text class="name" x="500" y="177">Browser question</text>
+  <text class="detail" x="500" y="203">One standalone POST /query</text>
 
-  <rect class="panel" x="640" y="128" width="230" height="114" rx="12"/>
-  <text class="step-number" x="658" y="153">EMBED</text>
-  <text class="step" x="658" y="185">Local Legal-BERT</text>
-  <text class="detail" x="658" y="211">Numeric text vectors</text>
+  <rect class="card source" x="28" y="255" width="372" height="76" rx="12"/>
+  <text class="name" x="48" y="287">Extract + chunk</text>
+  <text class="detail" x="48" y="313">Passages stay within each page</text>
 
-  <rect class="panel index-panel" x="940" y="128" width="280" height="114" rx="12"/>
-  <text class="step-number" x="958" y="153">STORE LOCALLY</text>
-  <text class="step" x="958" y="185">Chroma index</text>
-  <text class="detail" x="958" y="211">Separate PPC / PECA sets</text>
+  <rect class="card query" x="480" y="255" width="372" height="76" rx="12"/>
+  <text class="name" x="500" y="287">Check + route</text>
+  <text class="detail" x="500" y="313">Local checks; OpenRouter selects law</text>
 
-  <text class="lane" x="40" y="326">02  ANSWER ONE STANDALONE QUESTION</text>
-  <text class="note" x="978" y="326">One request at a time</text>
+  <rect class="card source" x="28" y="365" width="372" height="76" rx="12"/>
+  <text class="name" x="48" y="397">Local Legal-BERT</text>
+  <text class="detail" x="48" y="423">Embeddings from source text</text>
 
-  <path class="connector" d="M270 416 H328" marker-end="url(#arrow)"/>
-  <path class="connector" d="M570 416 H628" marker-end="url(#arrow)"/>
-  <path class="connector" d="M870 416 H928" marker-end="url(#arrow)"/>
-  <path class="connector return-connector" d="M1080 475 V520" marker-end="url(#return-arrow)"/>
+  <rect class="card query" x="480" y="365" width="372" height="76" rx="12"/>
+  <text class="name" x="500" y="397">Retrieve three passages</text>
+  <text class="detail" x="500" y="423">From the selected collection</text>
 
-  <rect class="panel query-panel" x="40" y="359" width="230" height="116" rx="12"/>
-  <text class="step-number" x="58" y="385">BROWSER</text>
-  <text class="step" x="58" y="417">User question</text>
-  <text class="detail" x="58" y="444">POST /query</text>
+  <rect class="card index" x="28" y="475" width="372" height="76" rx="12"/>
+  <text class="name" x="48" y="507">Local Chroma index</text>
+  <text class="detail" x="48" y="533">Separate PPC and PECA collections</text>
 
-  <rect class="panel query-panel" x="340" y="359" width="230" height="116" rx="12"/>
-  <text class="step-number" x="358" y="385">CHECK + ROUTE</text>
-  <text class="step" x="358" y="417">Choose one law</text>
-  <text class="detail" x="358" y="444">Local checks, model router</text>
+  <rect class="card query" x="480" y="475" width="372" height="76" rx="12"/>
+  <text class="name" x="500" y="507">Generate + verify</text>
+  <text class="detail" x="500" y="533">Model answer; local quote checks</text>
 
-  <rect class="panel query-panel" x="640" y="359" width="230" height="116" rx="12"/>
-  <text class="step-number" x="658" y="385">RETRIEVE</text>
-  <text class="step" x="658" y="417">Top 3 passages</text>
-  <text class="detail" x="658" y="444">From selected collection</text>
+  <rect class="card answer" x="480" y="585" width="372" height="76" rx="12"/>
+  <text class="name answer-text" x="500" y="617">Response in chat</text>
+  <text class="detail answer-text" x="500" y="643">Status, pages, quotes, warnings</text>
 
-  <rect class="panel query-panel" x="940" y="359" width="280" height="116" rx="12"/>
-  <text class="step-number" x="958" y="385">GENERATE + VERIFY</text>
-  <text class="step" x="958" y="417">Answer with citations</text>
-  <text class="detail" x="958" y="444">Model reply, local quote checks</text>
-
-  <rect class="result-panel" x="940" y="530" width="280" height="65" rx="12"/>
-  <text class="result-text" x="958" y="558" font-size="19" font-weight="730">Shown in the chat</text>
-  <text class="result-text" x="958" y="580" font-size="14">Status · pages · quotes · warnings</text>
-  <text class="note" x="40" y="555">The index is persistent. Questions and visible chat turns are not stored by the backend.</text>
-  <text class="note" x="40" y="580">The browser keeps its transcript only until reload, navigation, or tab closure.</text>
+  <text class="foot" x="28" y="622">Only the source index is persistent.</text>
+  <text class="foot" x="28" y="648">No questions or chat turns are saved.</text>
+  <text class="foot" x="28" y="697">Animation pauses when reduced motion is preferred.</text>
 </svg>

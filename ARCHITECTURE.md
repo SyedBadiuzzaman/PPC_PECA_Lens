@@ -30,7 +30,7 @@ flowchart TB
     end
 ```
 
-FastAPI also serves `/`, `/chat`, and `/ui/*` from the local `ui/` folder. The browser keeps visible turns only in page memory. Every question sent to `/query` stands alone. The graph is compiled without a LangGraph checkpointer or store, and its state exists only for one request.
+FastAPI also serves `/`, `/chat`, and `/ui/*` from the local `UI/` folder. The browser keeps visible turns only in page memory. Every question sent to `/query` stands alone. The graph is compiled without a LangGraph checkpointer or store, and its state exists only for one request.
 
 ## Offline ingestion flow
 
@@ -83,7 +83,7 @@ src/utils_03/      OpenRouter transport and Chroma persistence
 src/core_04/       Routing, retrieval, generation, and guardrails
 src/graph_05/      Stateless LangGraph state and nodes
 src/api_06/        HTTP schemas, endpoints, and safe error mapping
-ui/                Two same-origin pages, shared CSS, and in-memory chat behavior
+UI/                Two same-origin pages, shared CSS, and in-memory chat behavior
 evals/            Twenty-case evaluation dataset and runner
 tests/            Offline unit and API/graph integration tests
 ```
