@@ -1,0 +1,22 @@
+[
+  {"id": "ppc-01", "question": "What does the PPC say about offences committed within Pakistan?", "expected_law": "ppc", "expected_status": "answered", "expected_pages": [22]},
+  {"id": "ppc-02", "question": "When does the Pakistan Penal Code apply to an offence committed outside Pakistan?", "expected_law": "ppc", "expected_status": "answered", "expected_pages": [23]},
+  {"id": "ppc-03", "question": "How does the PPC say offence definitions relate to general exceptions?", "expected_law": "ppc", "expected_status": "answered", "expected_pages": [24]},
+  {"id": "ppc-04", "question": "How does the PPC define a Judge?", "expected_law": "ppc", "expected_status": "answered", "expected_pages": [25]},
+  {"id": "ppc-05", "question": "How does the PPC define theft?", "expected_law": "ppc", "expected_status": "answered", "expected_pages": [132]},
+  {"id": "peca-01", "question": "What is the territorial application stated in the supplied PECA text?", "expected_law": "peca", "expected_status": "answered", "expected_pages": [1]},
+  {"id": "peca-02", "question": "How does the supplied PECA text define access to data?", "expected_law": "peca", "expected_status": "answered", "expected_pages": [1]},
+  {"id": "peca-03", "question": "How does the supplied PECA text describe critical infrastructure?", "expected_law": "peca", "expected_status": "answered", "expected_pages": [2, 3]},
+  {"id": "peca-04", "question": "What does the supplied PECA text say about cyber stalking?", "expected_law": "peca", "expected_status": "answered", "expected_pages": [11]},
+  {"id": "peca-05", "question": "What does the supplied PECA text say about spamming?", "expected_law": "peca", "expected_status": "answered", "expected_pages": [11]},
+  {"id": "clarify-01", "question": "Compare theft under PPC with an online offence under PECA.", "expected_status": "needs_clarification"},
+  {"id": "clarify-02", "question": "Which PPC and PECA provisions could both relate to an online threat?", "expected_status": "needs_clarification"},
+  {"id": "clarify-03", "question": "Explain both the penal offence and cyber offence for this conduct.", "expected_status": "needs_clarification"},
+  {"id": "clarify-04", "question": "Does this conduct fall under PPC or PECA?", "expected_status": "needs_clarification"},
+  {"id": "clarify-05", "question": "Give me one combined answer from both supplied laws.", "expected_status": "needs_clarification"},
+  {"id": "outside-01", "question": "How do I file an income tax return?", "expected_status": "out_of_scope"},
+  {"id": "outside-02", "question": "What is the weather in Lahore?", "expected_status": "out_of_scope"},
+  {"id": "outside-03", "question": "Explain a civil property inheritance dispute.", "expected_status": "out_of_scope"},
+  {"id": "outside-04", "question": "What does the Constitution say about freedom of speech?", "expected_status": "out_of_scope"},
+  {"id": "outside-05", "question": "Summarize the Companies Act.", "expected_status": "out_of_scope"}
+]

@@ -1,0 +1,12 @@
+{
+  "ppc-01": {"source": "administrator92ada0936848e501425591b4ad0cd417.pdf", "pages": [22], "anchor_terms": ["committed within Pakistan", "punishment under this Code"]},
+  "ppc-02": {"source": "administrator92ada0936848e501425591b4ad0cd417.pdf", "pages": [23], "anchor_terms": ["extra-territorial offences", "outside Pakistan"]},
+  "ppc-03": {"source": "administrator92ada0936848e501425591b4ad0cd417.pdf", "pages": [24], "anchor_terms": ["General Exceptions", "definitions of offences"]},
+  "ppc-04": {"source": "administrator92ada0936848e501425591b4ad0cd417.pdf", "pages": [25], "anchor_terms": ["Judge", "judgment"]},
+  "ppc-05": {"source": "administrator92ada0936848e501425591b4ad0cd417.pdf", "pages": [132], "anchor_terms": ["theft", "dishonestly"]},
+  "peca-01": {"source": "PECA Act Law.pdf", "pages": [1], "anchor_terms": ["whole of Pakistan", "outside Pakistan"]},
+  "peca-02": {"source": "PECA Act Law.pdf", "pages": [1], "anchor_terms": ["access to data", "copy"]},
+  "peca-03": {"source": "PECA Act Law.pdf", "pages": [2, 3], "anchor_terms": ["critical infrastructure", "national security"]},
+  "peca-04": {"source": "PECA Act Law.pdf", "pages": [11], "anchor_terms": ["Cyber stalking"]},
+  "peca-05": {"source": "PECA Act Law.pdf", "pages": [11], "anchor_terms": ["Spamming"]}
+}

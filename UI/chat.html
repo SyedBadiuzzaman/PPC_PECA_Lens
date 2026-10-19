@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Ask standalone PPC and PECA reference questions in a private, session-only interface.">
+    <title>Reference session | PPC-PECA Lens</title>
+    <link rel="stylesheet" href="/ui/styles.css">
+    <script src="/ui/app.js" defer></script>
+  </head>
+  <body class="chat-page">
+    <a class="skip-link" href="#chat-main">Skip to conversation</a>
+
+    <div class="chat-layout">
+      <header class="chat-header">
+        <a class="chat-brand" href="/" aria-label="Return to PPC-PECA Lens introduction">
+          <strong>PPC/PECA</strong><span>Lens</span>
+        </a>
+        <div class="session-controls">
+          <p id="session-state" class="session-state">No active session</p>
+          <button id="new-session" class="button button-quiet" type="button" disabled>New session</button>
+        </div>
+      </header>
+
+      <div id="service-banner" class="service-banner" role="status" aria-live="polite">
+        <span id="service-message">Checking local service readiness...</span>
+        <button id="retry-health" class="text-button" type="button" hidden>Check again</button>
+      </div>
+
+      <main id="chat-main" class="chat-main">
+        <section id="empty-state" class="chat-empty" aria-labelledby="chat-title">
+          <p class="eyebrow">Private browser session</p>
+          <h1 id="chat-title">Ask one law question at a time.</h1>
+          <p>
+            Your visible transcript exists only in this page. Each question is answered independently and previous turns are not sent as context.
+          </p>
+          <div class="prompt-grid" aria-label="Example questions">
+            <button class="prompt-option" type="button">How does the PPC define theft?</button>
+            <button class="prompt-option" type="button">What does PECA say about cyber stalking?</button>
+            <button class="prompt-option" type="button">What is criminal breach of trust under the PPC?</button>
+            <button class="prompt-option" type="button">Which law covers unauthorized access to an information system?</button>
+          </div>
+        </section>
+
+        <section id="transcript" class="transcript" aria-label="Session transcript" aria-live="polite" aria-relevant="additions"></section>
+      </main>
+
+      <footer class="composer-area">
+        <form id="question-form" class="composer" novalidate>
+          <label class="sr-only" for="question-input">Your standalone legal question</label>
+          <textarea id="question-input" name="question" rows="1" maxlength="4000" placeholder="Ask about the supplied PPC or PECA source..." disabled required></textarea>
+          <div class="composer-actions">
+            <span id="character-count" aria-live="polite">0 / 4000</span>
+            <button id="send-button" class="button button-primary" type="submit" disabled>Send question</button>
+          </div>
+        </form>
+        <p class="composer-note">Do not include names or personal identifiers. This is a source reference, not legal advice.</p>
+      </footer>
+    </div>
+  </body>
+</html>
